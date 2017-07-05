@@ -16,9 +16,14 @@ class CreateTrackerTable extends Migration
         Schema::create('tracker', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ip');
+            $table->string('browser');
+            $table->string('platform');
+            $table->boolean('is_mobile');
+            $table->string('robot');
             $table->string('user_agent');
-            $table->string('customer_email');
-            $table->string('campaign');
+            $table->string('customer_email')->nullable();
+            $table->string('other_details')->nullable();
+            $table->string('campaign_code');
             $table->timestamps();
         });
     }

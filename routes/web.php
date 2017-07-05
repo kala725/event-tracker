@@ -15,4 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/track/{id}', 'TrackingController@index');
+Route::get('/tracking/{campaign}.gif', 'TrackingController@capture_event');
+
+Route::get('campaign/create', 'CampaignController@create');
+Route::post('campaign/create', 'CampaignController@create');
+Route::get('campaign', 'CampaignController@get');
+
+Route::get('tracking/log/{campaign_code}', 'TrackingController@event_log');
+Route::get('tracking/stats', 'TrackingController@stats');
